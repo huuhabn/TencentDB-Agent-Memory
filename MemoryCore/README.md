@@ -1,6 +1,6 @@
 # MemoryCore
 
-MemoryCore is the **memory and metadata core** of TencentDB Agent Memory. It provides unified storage and APIs for three types of data:
+MemoryCore is the **memory and metadata core** of Unifield Knowledge Hub. It provides unified storage and APIs for three types of data:
 
 - **Memory**: L0 conversations, L1 atomic memories, L2 scenarios, and L3 profiles.
 - **Knowledge metadata**: identifiers, types, status, associations, and service locations for Wiki, Code Graph, and other knowledge sources.

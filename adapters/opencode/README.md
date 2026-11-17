@@ -23,7 +23,7 @@ The proxy speaks each client's native protocol. OpenCode connects through the Op
 1. TencentDB Agent Memory is running (the one-command stack from the main repo README):
 
    ```bash
-   cd TencentDB-Agent-Memory/deploy/global-images
+   cd ukh/deploy/global-images
    cp .env.example .env && $EDITOR .env
    ./start-all.sh
    ```

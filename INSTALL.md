@@ -1,6 +1,6 @@
-# TencentDB Agent Memory — Installation Guide
+# Unifield Knowledge Hub — Installation Guide
 
-← Back to [README.md](./README.md) · 简体中文: [INSTALL_CN.md](./INSTALL_CN.md)
+← Back to [README.md](./README.md)
 
 This document covers three installation modes:
 
@@ -19,8 +19,8 @@ consume team memory / knowledge / skills through the proxy:
 
 ```bash
 # 1) Fetch the scripts
-git clone https://github.com/TencentCloud/TencentDB-Agent-Memory.git
-cd TencentDB-Agent-Memory/deploy/global-images
+git clone https://github.com/huuhabn/TencentDB-Agent-Memory.git
+cd ukh/deploy/global-images
 
 # 2) One-shot boot (interactive)
 ./start-all.sh

@@ -1,28 +1,17 @@
 
 <div align="center">
 
-<img src="./assets/images/logo.png" alt="TencentDB Agent Memory" width="880" />
+<img src="./assets/images/logo.png" alt="Unifield Knowledge Hub" width="880" />
 
 ### Agents remember. Humans innovate.
 
-<a href="https://trendshift.io/repositories/29310?utm_source=repository-badge&amp;utm_medium=badge&amp;utm_campaign=badge-repository-29310" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/29310" alt="TencentCloud%2FTencentDB-Agent-Memory | Trendshift" width="250" height="55"/></a>
+[Installation](#installation) · [Supported Agents](#all-agents-share-the-same-memory-server) · [Best Practices](#best-practices) · [What is it?](#what-is-unifield-knowledge-hub) · [Team Play](#one-play-style-build-a-growing-agent-team-for-a-one-person-company) · [Technical Implementation](#technical-implementation) · [Benchmark](#benchmark) · [Roadmap](#roadmap)
 
-[![npm](https://img.shields.io/npm/v/@tencentdb-agent-memory/memory-tencentdb?color=blue)](https://www.npmjs.com/package/@tencentdb-agent-memory/memory-tencentdb)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
-[![Node](https://img.shields.io/badge/node-%3E=22.16-brightgreen)](https://nodejs.org/)
-[![OpenClaw](https://img.shields.io/badge/OpenClaw-%3E=2026.3.13-orange)](https://github.com/openclaw/openclaw)
-[![Hermes](https://img.shields.io/badge/Hermes-Gateway-7B61FF)](https://hermes-agent.nousresearch.com/docs/)
-[![Discord](https://img.shields.io/badge/Discord-Join-5865F2?logo=discord&logoColor=white)](https://discord.gg/dJQM6mKMF)
-
-[Installation](#installation) · [Supported Agents](#all-agents-share-the-same-memory-server) · [What is it?](#what-is-tencentdb-agent-memory) · [Team Play](#one-play-style-build-a-growing-agent-team-for-a-one-person-company) · [Technical Implementation](#technical-implementation) · [Benchmark](#benchmark) · [Roadmap](#roadmap)
-
-[**English**](./README.md) · [简体中文](./README_CN.md)
+[**English**](./README.md) 
 
 </div>
 
 ---
-
-> **Latest:** Team Memory Beta is evolving quickly — install it and start exploring in minutes.
 
 <td>
    <video src="https://github.com/user-attachments/assets/efb1a808-1f86-4cfe-802c-f7453f7ca938" width="100%" controls autoplay loop muted playsinline></video>
@@ -34,7 +23,7 @@ Start all three services in one go (`memory-core` + `memory-hub` + `proxy`):
 
 ```bash
 git clone https://github.com/TencentCloud/TencentDB-Agent-Memory.git
-cd TencentDB-Agent-Memory/deploy/global-images
+cd ukh/deploy/global-images
 cp .env.example .env
 $EDITOR .env       # Fill in two sets of LLM parameters (memory group + proxy group)
 ./start-all.sh     # Launch everything with one command; when finished, it prints a one-liner you can paste directly into Claude
@@ -54,28 +43,40 @@ See [**Data Migration Tool (v2 → v3)**](./MemoryCore/scripts/migrate-v2-to-v3/
 
 ## All Agents Share the Same Memory Server
 
-One Proxy, unchanged protocol, zero-code integration — point the Agent's base URL to the Proxy and it's done. No plugin, hook, or MCP server is required.
+One Proxy, unchanged protocol, zero-code integration — point the Agent's base URL to the Proxy and configure its User Key. Most clients don't require a plugin, hook, or MCP server.
 
 <table>
 <tr>
-<td align="center" width="140"><a href="./INSTALL.md#using-proxy-with-deepseek-harness-dsh"><img src="./assets/images/agents/dsh.png" width="48" height="48" /><br /><sub><b>DeepSeek Harness</b></sub></a></td>
-<td align="center" width="140"><a href="./INSTALL.md#using-proxy-with-claude-code"><img src="./assets/images/agents/claude-code.png" width="48" height="48" /><br /><sub><b>Claude Code</b></sub></a></td>
-<td align="center" width="140"><a href="./INSTALL.md#using-proxy-with-codex"><img src="./assets/images/agents/codex.png" width="48" height="48" /><br /><sub><b>Codex</b></sub></a></td>
-<td align="center" width="140"><a href="./INSTALL.md#using-proxy-with-codebuddy"><img src="./assets/images/agents/codebuddy.png" width="48" height="48" /><br /><sub><b>CodeBuddy</b></sub></a></td>
+<td align="center" width="140"><a href="./agents/dsh/"><img src="./assets/images/agents/dsh.png" width="48" height="48" /><br /><sub><b>DeepSeek Harness</b></sub></a></td>
+<td align="center" width="140"><a href="./agents/claude-code/"><img src="./assets/images/agents/claude-code.png" width="48" height="48" /><br /><sub><b>Claude Code</b></sub></a></td>
+<td align="center" width="140"><a href="./agents/codex/"><img src="./assets/images/agents/codex.png" width="48" height="48" /><br /><sub><b>Codex</b></sub></a></td>
+<td align="center" width="140"><a href="./agents/codebuddy/"><img src="./assets/images/agents/codebuddy.png" width="48" height="48" /><br /><sub><b>CodeBuddy</b></sub></a></td>
 </tr>
 <tr>
-<td align="center" width="140"><a href="./INSTALL.md#using-proxy-with-workbuddy"><img src="./assets/images/agents/workbuddy.png" width="48" height="48" /><br /><sub><b>WorkBuddy</b></sub></a></td>
-<td align="center" width="140"><a href="./INSTALL.md#using-proxy-with-hermes"><img src="./assets/images/agents/hermes.png" width="48" height="48" /><br /><sub><b>Hermes</b></sub></a></td>
-<td align="center" width="140"><a href="./INSTALL.md#using-proxy-with-openclaw"><img src="./assets/images/agents/openclaw.png" width="48" height="48" /><br /><sub><b>OpenClaw</b></sub></a></td>
-<td align="center" width="140"><a href="./INSTALL.md#using-proxy-with-other-platforms-generic"><sub><b>More frameworks coming soon...</b></sub></a></td>
+<td align="center" width="140"><a href="./agents/workbuddy/"><img src="./assets/images/agents/workbuddy.png" width="48" height="48" /><br /><sub><b>WorkBuddy</b></sub></a></td>
+<td align="center" width="140"><a href="./agents/hermes/"><img src="./assets/images/agents/hermes.png" width="48" height="48" /><br /><sub><b>Hermes</b></sub></a></td>
+<td align="center" width="140"><a href="./agents/openclaw/"><img src="./assets/images/agents/openclaw.png" width="48" height="48" /><br /><sub><b>OpenClaw</b></sub></a></td>
+<td align="center" width="140"><a href="./agents/adapter-agent-development.md"><sub><b>More frameworks coming soon...</b></sub></a></td>
+</tr>
+<tr>
+<td align="center" width="140" colspan="2"><a href="./agents/opencode/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://opencode.ai/brand/files/opencode-logo-dark-square.png" /><img src="https://opencode.ai/brand/files/opencode-logo-light-square.png" width="48" height="48" alt="" /></picture><br /><sub><b>OpenCode</b></sub></a></td>
+<td align="center" width="140" colspan="2"><a href="./MemoryCore/pi-plugin/README.md"><img src="https://pi.dev/favicon.svg" width="48" height="48" alt="" /><br /><sub><b>Pi</b></sub></a></td>
 </tr>
 </table>
 
-See [**INSTALL.md**](./INSTALL.md) for the exact configuration steps of each client.
+See [**INSTALL.md**](./INSTALL.md#using-proxy-with-agents) for links to the exact configuration steps of each client.
 
-Don't see your favorite Agent? You can try adapting it yourself with the [Generic integration guide](./INSTALL.md#using-proxy-with-other-platforms-generic) — and we'd love a PR adding native support for it. See [**CONTRIBUTING.md**](./CONTRIBUTING.md) to get started.
+OpenCode has a [ready-to-use adapter configuration](./adapters/opencode/README.md), and Pi uses the [`pi-plugin` extension](./MemoryCore/pi-plugin/README.md) to connect through OpenAI Chat Completions. After binding a session, you can save a Team, Agent, and Task combination as the default for new sessions.
 
-# What is TencentDB Agent Memory?
+Don't see your favorite Agent? You can try adapting it yourself with the [Generic integration guide](./agents/adapter-agent-development.md) — and we'd love a PR adding native support for it. See [**CONTRIBUTING.md**](./CONTRIBUTING.md) to get started.
+
+### Best Practices
+
+Once you've deployed the stack and connected your Agents, use the guide to set up a team, import and assign memory assets, and see how well they work on a real task.
+
+See the [Best Practices guide](https://tencentcloud.github.io/ukh/best-practices).
+
+# What is Unifield Knowledge Hub?
 
 We started from a practical question: **How do you reduce repetitive work when using Agents?**
 
@@ -98,7 +99,7 @@ Existing information → Reusable memory assets → Fewer turns → Less rework 
 ### 🧠 A brain that remembers people and context
 
 - **Chat Memory** retains preferences, facts, decisions, and interaction history.
-- Each Agent automatically gets its own memory when created — no need to re-introduce yourself next time.
+- Session bindings and permissions determine which memories an Agent can access. When an Agent returns to the same work, it can reuse the context.
 - L0 Conversation → L1 Atom → L2 Scenario → L3 Persona — raw conversations are distilled layer by layer.
 
 <img width="" src="assets/images/chat_memory.png" alt="image.png" />
@@ -107,9 +108,9 @@ Existing information → Reusable memory assets → Fewer turns → Less rework 
 
 ### ⚡ A Skill library that accumulates expertise
 
-- After completing complex work, Agents can extract and manage reusable Skills from conversations and tool calls, and import them into the context of a designated Agent when needed.
+- After completing complex work, Agents can extract and manage reusable Skills from conversations and tool calls, and import them into the context of a designated Agent when needed. Skills can be edited and exported from the panel.
 - A Skill isn't just a prompt snippet; it has versions, resource files, trigger boundaries, execution steps, and validation rules.
-- Personal Skills are private by default; after review, they can be shared with the team and assigned to other Agents.
+- Personal Skills are private by default; they can be shared with the team and assigned to other Agents.
 
 <img width="" src="assets/images/skill.png" alt="image.png" />
 
@@ -117,7 +118,7 @@ Existing information → Reusable memory assets → Fewer turns → Less rework 
 
 ### 📖 A knowledge map that reads both docs and code
 
-- **Wiki** turns product docs, design specs, and ops runbooks into structured pages with a link graph. (Inspired by Karpathy's LLM knowledge base.)
+- **Wiki** turns product docs, design specs, and ops runbooks into structured pages with a link graph. It supports Markdown, plain text, HTML, Word, Excel, PowerPoint, and PDF. (Inspired by Karpathy's LLM knowledge base.)
 
 <img src="./assets/images/wiki.png" alt="image.png" />
 
@@ -140,15 +141,17 @@ Existing information → Reusable memory assets → Fewer turns → Less rework 
 
 ## Cold Start: Load the Save File, Then Get to Work
 
-Most Agents' first task is re-learning your project. TencentDB Agent Memory turns the learning cost you've already paid into a save file:
+Most Agents' first task is re-learning your project. Unifield Knowledge Hub turns the learning cost you've already paid into a save file:
 
 <img alt="Cold Start: import codebase, docs, and history into Memory Hub" src="assets/images/flowchart3.png" />
 
-Specifically, these existing assets can be imported directly and processed automatically in the panel:
+Admins can configure a default Agent template for the team so new members can pick up the team's way of working.
 
-- **Codebases**: Import existing repositories — **CodeGraph** automatically indexes symbols, files, call relationships, and impact paths.
-- **Documents & files**: Import relevant docs and files — **Wiki** automatically generates structured pages with a link graph.
-- **Conversation sessions**: Import past Agent conversation sessions — **Skills and Chat Memory** are automatically extracted as reusable assets.
+Specifically, you can import codebases and documents in the panel and use the client import script for past conversation sessions:
+
+- **Codebases**: Import public repositories or private repositories with configured credentials — **CodeGraph** automatically indexes symbols, files, call relationships, and impact paths.
+- **Documents & files**: Import relevant docs and files, including from configured external sources — **Wiki** automatically generates structured pages with a link graph.
+- **Conversation sessions**: Use the [local asset import script](./agents/README.md#本地资产导入) to import past sessions from supported clients. By default, the script triggers both **Skill and Chat Memory** extraction; you can also choose to trigger just one.
 
 > Stop retraining every Agent. Give it the save file.
 
@@ -158,11 +161,11 @@ Open Memory Hub and create a team:
 
 ```text
 Tiny but Serious Inc.
-├── 👤 You · Set goals / Make decisions
-├── 🔭 Scout · Research / Find opportunities
-├── 🛠 Builder · Write code / Build products
-├── 🧪 Reviewer · Test / Find issues
-└── 🧠 Agent Memory · Preserve the team's experience
+├── You · Set goals / Make decisions
+├── Scout · Research / Find opportunities
+├── Builder · Write code / Build products
+├── Reviewer · Test / Find issues
+└── Agent Memory · Preserve the team's experience
 ```
 
 You're not opening four disconnected chat windows — you're assembling a squad with different roles that can inherit the team's accumulated experience.
@@ -194,7 +197,7 @@ Different roles, different loadouts. Less noise — give each Agent the memory a
 
 RAG answers "what can be found?" Team Memory also answers "who can use it, which version is valid, and which Agent should receive it."
 
-| | Chat History | Standard RAG | TencentDB Agent Memory |
+| | Chat History | Standard RAG | Unifield Knowledge Hub |
 | :--- | :---: | :---: | :---: |
 | Cross-session user understanding | △ | △ | ✅ Chat Memory |
 | Distilled executable experience | — | — | ✅ Skill |
@@ -210,9 +213,10 @@ RAG answers "what can be found?" Team Memory also answers "who can use it, which
 | :--- | :--- |
 | **Team Up** | Create teams, add people and Agents, define sharing boundaries |
 | **Asset Library** | Browse, search, review, and manage Chat Memory, Skills, Wiki, and CodeGraph |
-| **Agent Loadout** | Bind different memory assets to different Agents; adjust priority and usage mode |
+| **Agent Loadout** | Bind different memory assets to different Agents; adjust priority and usage mode; configure the team's default Agent template |
 | **Knowledge Workshop** | Build Wiki and CodeGraph; monitor processing status and asset metadata |
 | **Access Control** | Switch between private, team, and ACL-based access; revoke sharing when needed |
+| **Asset Usage Analytics** | Enable optional analytics to see how often memory, skill, and knowledge tools are called |
 
 When you open an asset, what matters is not just "what it says," but also "where it came from, which version it is, who it's assigned to, and whether it's been used recently."
 
@@ -239,7 +243,7 @@ You can assign the "Release Skill" to the Release Agent, the "Architecture Wiki"
 
 ## Technical Implementation
 
-TencentDB Agent Memory doesn't aim to "store everything." It solves three problems: **what's worth keeping, who can use it, and how to retrieve less while retrieving the right things next time.**
+Unifield Knowledge Hub doesn't aim to "store everything." It solves three problems: **what's worth keeping, who can use it, and how to retrieve less while retrieving the right things next time.**
 
 <img alt="Technical overview: layering (L0–L3), Memory Assets, Memory Hub, identity-based assembly for Agents" src="assets/images/flowchart5.png" />
 
@@ -264,13 +268,13 @@ This lets teams share experience without exposing all their private information;
 
 ### 3. Knowledge isn't injected wholesale — it's called on demand
 
-Documents are organized into searchable Wiki pages that support link-graph drill-down; codebases are indexed into CodeGraph assets containing files, symbols, and call relationships. Agents first discover capabilities via `/v3/tools/list`, then use `/v3/tools/call` to read relevant pages, source code, or impact paths.
+Documents are organized into searchable Wiki pages that support link-graph drill-down; codebases are indexed into CodeGraph assets containing files, symbols, and call relationships. Agents call authorized knowledge tools on demand to read relevant pages, source code, or impact paths. The Knowledge service exposes `/v3/tools/list` and `/v3/tools/call` for integrations.
 
 This makes documents and code part of memory as well — but they remain available tools that only enter context when truly needed.
 
 ## Benchmark
 
-| Benchmark | Without TencentDB Agent Memory | With it enabled | Relative improvement |
+| Benchmark | Without Unifield Knowledge Hub | With it enabled | Relative improvement |
 | :--- | :---: | :---: | :---: |
 | **PersonaMem** | 48% | **76%** | **+59%** |
 
@@ -279,14 +283,13 @@ PersonaMem tests whether an Agent can correctly understand and apply user inform
 ## Notes
 
 - Wiki and CodeGraph are built asynchronously; allow some processing time before they reach `ready` status.
-- CodeGraph currently prioritizes public HTTPS repositories; support for private repositories and SSH credentials is still being refined.
-- The Hub supports manual asset binding; fully automated memory routing is still under iteration.
+- CodeGraph supports public HTTPS repositories and private repositories with configured credentials. To clone a private repository over SSH, get the public key from the panel and grant it access on your code hosting platform.
+- The Hub supports manual asset binding. On-demand Skill selection in the Proxy is off by default. Once you enable it and configure a selection strategy, the Proxy can select up to one relevant Skill to load per turn.
 
 ## Related Documentation
 
-- [Roadmap](./ROADMAP.md) (what we're building next)
 - [Full Installation Guide](./INSTALL.md) (Memory Core + Hub + Proxy one-click deployment)
-- [Roadmap](./ROADMAP.md) (what we're building next; 中文: [ROADMAP_CN.md](./ROADMAP_CN.md))
+- [Client Integration and Local Asset Import](./agents/README.md)
 - [Data Migration Tool (v2 → v3)](./MemoryCore/scripts/migrate-v2-to-v3/README.md) (if you're on an older release and want to migrate existing data)
 - [Knowledge OpenAPI](./MemoryKnowledge/openapi.yaml)
 - **API Documentation**:
@@ -301,14 +304,14 @@ Agent Memory doesn't have a settled standard yet. Bug reports, documentation, be
 ---
 ## Roadmap
 
-Current release is **v2.0.0**. Next up (**v2.0.1**): zero-config cold start, faster Wiki generation, user/team custom prompts, Skill export, and Codex (IDE Plan mode) support.
+[v2.0.3](https://github.com/TencentCloud/ukh/releases/tag/v2.0.3) adds default session bindings and support for rich document formats in Wiki. See [GitHub Releases](https://github.com/TencentCloud/ukh/releases/latest) for the latest stable release and [CHANGELOG.md](./CHANGELOG.md) for the release history.
 
-👉 See the full plan in [**ROADMAP.md**](./ROADMAP.md) (中文: [ROADMAP_CN.md](./ROADMAP_CN.md)).
+👉 See earlier plans in [**ROADMAP.md**](./ROADMAP.md) (中文: [ROADMAP_CN.md](./ROADMAP_CN.md)).
 
 ---
 ## Acknowledgements
 
-TencentDB Agent Memory stands on the shoulders of the open-source community:
+Unifield Knowledge Hub stands on the shoulders of the open-source community:
 
 - [**CodeGraph**](https://github.com/colbymchenry/codegraph) — our CodeGraph asset module **uses code from this project**. Its design of a pre-indexed code graph is the foundation of our implementation.
 - [**Hermes Agent**](https://github.com/nousresearch/hermes-agent) (Nous Research) — our Skill asset management **uses part of the Skill-related code from Hermes Agent and builds further optimizations base on it**.
@@ -317,62 +320,3 @@ TencentDB Agent Memory stands on the shoulders of the open-source community:
 We are grateful to the authors and contributors of these projects.
 
 ---
-## Community & Contributing
-
-We welcome contributions of all kinds — bug reports, feature suggestions, documentation fixes, benchmark reproductions, ecosystem integrations, or pull requests. Agent memory is far from settled, and we hope to build it together with the community.
-
-- 🐞 **Found a bug or have a question?** Open an issue in [GitHub Issues](https://github.com/TencentCloud/TencentDB-Agent-Memory/issues) — we respond within 24 hours.
-- 💡 **Have an idea to share?** Start a thread in [GitHub Discussions](https://github.com/TencentCloud/TencentDB-Agent-Memory/discussions).
-- 🛠️ **Want to contribute code?** Please read [CONTRIBUTING.md](./CONTRIBUTING.md) first.
-- 💬 **Want to chat with us?** Join our [Discord community](https://discord.gg/dJQM6mKMF) and talk to the core developers directly.
-
----
-
-<p align="center">
- Let the path the team has walked become the next Agent's starting line.
-</p>
-
----
-
-## ✨ Contributors
-
-> 💡 Thanks to the following contributors building with us — you make TencentDB Agent Memory better.
-
-<div align="center">
-  <a href="https://github.com/TencentCloud/TencentDB-Agent-Memory/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=TencentCloud/TencentDB-Agent-Memory&columns=12&anon=1" />
-  </a>
-
-  <br /><br />
-<a href="https://github.com/TencentCloud/TencentDB-Agent-Memory/issues">
-  <img src="https://img.shields.io/badge/Contributions_Welcome-006eff?style=for-the-badge&logo=github&logoColor=white" alt="Contributions Welcome" />
-</a>
-
-</div>
-
-
-<table width="100%">
-  <tr>
-    <td width="68%">
-      <b>If TencentDB Agent Memory has been helpful to you, please consider starring the project.</b><br />
-      If you have any suggestions, feel free to open an issue for discussion.
-    </td>
-    <td width="32%" align="right">
-      <img src="./assets/images/star-helper.png" alt="Star TencentDB Agent Memory" width="260" />
-    </td>
-  </tr>
-</table>
-
----
-
-## Star History
-
-<p align="center">
-  <a href="https://star-history.dera.page/#TencentCloud/TencentDB-Agent-Memory&Date">
-    <img src="https://star-history.dera.page/svg?repos=TencentCloud/TencentDB-Agent-Memory&type=Date" alt="Star History Chart" width="600" />
-  </a>
-</p>
-
----
-
-[MIT](./LICENSE) © TencentDB Agent Memory Team
